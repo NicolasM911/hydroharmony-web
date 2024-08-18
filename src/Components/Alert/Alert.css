@@ -1,0 +1,27 @@
+.alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  z-index: 1000;
+}
+
+.alert.success {
+  background-color: #4caf50; /* Verde */
+}
+
+.alert.error {
+  background-color: #f44336; /* Rojo */
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 10px;
+}

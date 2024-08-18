@@ -1,0 +1,66 @@
+.loading-spinner-container {
+  display: flex; /* Utiliza flexbox para organizar el contenido dentro del contenedor */
+  flex-direction: column; /* Coloca los elementos en una columna (uno encima del otro) */
+  justify-content: center; /* Centra los elementos en el eje vertical */
+  align-items: center; /* Centra los elementos en el eje horizontal */
+  height: 100vh; /* Establece la altura del contenedor al 100% del alto de la ventana */
+  width: 100vw; /* Establece el ancho del contenedor al 100% del ancho de la ventana */
+  position: relative; /* Permite el uso de posicionamiento absoluto dentro del contenedor */
+}
+
+.loading-spinner {
+  display: flex; /* Utiliza flexbox para centrar el contenido dentro del spinner */
+  justify-content: center; /* Centra el contenido en el eje horizontal */
+  align-items: center; /* Centra el contenido en el eje vertical */
+  position: relative; /* Permite que los elementos hijos se posicionen de manera absoluta */
+}
+
+/* Spinner */
+.spinner-border {
+  border: 8px solid rgba(0, 0, 0, 0.1); /* Color del borde con transparencia */
+  border-left-color: #0ed145; /* Color del borde izquierdo para el efecto de rotación */
+  border-radius: 70%; /* Redondea el spinner */
+  width: 140px; /* Ancho del spinner */
+  height: 140px; /* Altura del spinner */
+  animation: spin 1s linear infinite; /* Animación de rotación */
+}
+
+/* Contenedor del logo */
+/* Contenedor del logo */
+.logo-container {
+  position: absolute; /* Posición absoluta para centrar el contenedor */
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  transform: translate(-50%, -50%); /* Ajusta el centrado exacto */
+  width: 120px; /* Ancho del contenedor (ajusta según lo necesites) */
+  height: 120px; /* Altura del contenedor (ajusta según lo necesites) */
+  display: flex; /* Usar flexbox para centrar el contenido interno */
+  align-items: center; /* Centra verticalmente el contenido */
+  justify-content: center; /* Centra horizontalmente el contenido */
+  /* background-color: #f4f4f9; Fondo opcional para ver el contenedor más claro */
+  border-radius: 15px; /* Opcional: para bordes redondeados */
+}
+
+
+/* Imagen del logo */
+.logo-image {
+  width: 100%; /* Ancho del logo */
+  height: 100%; /* Altura del logo */
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); /* Estado inicial de la animación, sin rotación */
+  }
+  100% {
+    transform: rotate(360deg); /* Estado final de la animación, rotación completa (360 grados) */
+  }
+}
+
+.loading-spinner-container p {
+  font-size: 1.5em; /* Tamaño del texto que aparece debajo del spinner */
+  color: #333; /* Color del texto */
+  text-align: center; /* Centra el texto horizontalmente */
+  margin-top: 16px; /* Añade un margen superior entre el spinner y el texto */
+}

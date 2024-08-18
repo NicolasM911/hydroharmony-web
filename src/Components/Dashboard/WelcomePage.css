@@ -1,0 +1,103 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+    padding: 20px;
+}
+
+.welcome-heading {
+    font-size: 2.5rem;
+    color: #0ed145;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.variables-container {
+    display: flex;
+    flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
+    gap: 20px;
+    align-items: center;
+}
+
+.variable-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%; /* Ancho del 100% en pantallas pequeñas */
+    max-width: 300px; /* Establece un ancho máximo */
+}
+
+.variable-card h2 {
+    font-size: 1.5rem;
+    color: #333333;
+}
+
+.variable-card p {
+    font-size: 1.25rem;
+    color: #0ed145;
+    margin-top: 10px;
+}
+
+.irrigation-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #0ed145;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.irrigation-button:hover {
+    background-color: #0cb23b;
+}
+
+/* Media queries para pantallas más pequeñas */
+
+@media (max-width: 768px) {
+    .welcome-heading {
+        font-size: 2rem; /* Reduce el tamaño del encabezado en pantallas más pequeñas */
+    }
+
+    .variable-card {
+        width: 90%; /* Ajusta el ancho para pantallas más pequeñas */
+    }
+
+    .irrigation-button {
+        font-size: 0.9rem; /* Reduce el tamaño del texto en el botón */
+        padding: 8px 16px; /* Ajusta el padding del botón */
+    }
+}
+
+/* Media queries para pantallas muy pequeñas (móviles) */
+
+@media (max-width: 480px) {
+    .welcome-heading {
+        font-size: 1.5rem; /* Reduce aún más el tamaño del encabezado en móviles */
+        margin-bottom: 20px;
+    }
+
+    .variable-card {
+        width: 100%; /* Usa el ancho completo en pantallas muy pequeñas */
+        padding: 15px; /* Reduce el padding */
+    }
+
+    .variable-card h2 {
+        font-size: 1.25rem; /* Ajusta el tamaño del texto en tarjetas */
+    }
+
+    .variable-card p {
+        font-size: 1rem; /* Ajusta el tamaño del texto en tarjetas */
+    }
+
+    .irrigation-button {
+        font-size: 0.8rem; /* Ajusta el tamaño del texto en el botón */
+        padding: 6px 12px; /* Ajusta el padding del botón */
+    }
+}
