@@ -6,7 +6,6 @@ import { ref, onValue, query, orderByChild, limitToLast, set } from 'firebase/da
 import './WelcomePage.css';
 import Alert from '../Alert/Alert';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'; // Asegúrate de que la ruta es correcta
-import Sidebar from '../Sidebar/Sidebar';
 
 
 
@@ -90,7 +89,6 @@ const WelcomePage: React.FC = () => {
         <LoadingSpinner /> // Muestra el spinner mientras isLoading es true
       ) : (
         <>
-          <Sidebar/>
           <h1 className="welcome-heading">HydroHarmony IoT Dashboard</h1>
           <div className="variables-container">
             <div className="variable-card">
