@@ -10,6 +10,7 @@ import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'; // Asegúrate de 
 
 
 
+
 const WelcomePage: React.FC = () => {
   const [humidity, setHumidity] = useState<number | null>(null);
   const [temperature, setTemperature] = useState<number | null>(null);

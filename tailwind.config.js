@@ -1,9 +1,13 @@
-const colors = require('tailwindcss/colors');
+/** @type {import('tailwindcss').Config} */
+import colors from 'tailwindcss/colors';
 
-module.exports = {
+export default {
   content: [
-    './pages/**/*.{html,js}',
-    './components/**/*.{html,js}',
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+
+    // Path to Tremor module
+    "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     transparent: 'transparent',
@@ -126,22 +130,6 @@ module.exports = {
       pattern:
         /^(fill-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(?:50|100|200|300|400|500|600|700|800|900|950))$/,
     },
-    // We add this flatMap to the safelist. You can pass more than one color if needed. E.g. "[#ffcc33]","[#161616]"
-    ...["[#ffcc33]"].flatMap((customColor) => [
-      `bg-${customColor}`,
-      `border-${customColor}`,
-      `hover:bg-${customColor}`,
-      `hover:border-${customColor}`,
-      `hover:text-${customColor}`,
-      `fill-${customColor}`,
-      `ring-${customColor}`,
-      `stroke-${customColor}`,
-      `text-${customColor}`,
-      `ui-selected:bg-${customColor}`,
-      `ui-selected:border-${customColor}`,
-      `ui-selected:text-${customColor}`,
-    ]),
-
   ],
   plugins: [require('@headlessui/tailwindcss'), require('@tailwindcss/forms')],
-};
+}

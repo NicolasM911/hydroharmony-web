@@ -1,32 +1,30 @@
 import React, { useState } from "react";
+import { LuBox, LuCalendar } from "react-icons/lu";
 import { Link } from "react-router-dom";
-// ICONS //
-import { LuBox, LuUser, LuMessageSquare, LuCalendar } from "react-icons/lu";
-import { FaSuitcase } from "react-icons/fa";
-import { TbUsers } from "react-icons/tb";
-// ICONS //
+import { signOut } from 'firebase/auth';
+import { auth } from '../../../firebaseConfig';
+import { FaQuestionCircle } from "react-icons/fa";
+import { RiLogoutCircleRLine } from "react-icons/ri";
 
-interface SidebarLink {
-  id: number;
-  path: string;
-  name: string;
-  icon: React.ComponentType;
-}
-
-const Sidebar: React.FC = () => {
-  const [activeLink, setActiveLink] = useState<number>(0);
-
-  const handleLinkClick = (index: number) => {
+const Sidebar = () => {
+  const [activeLink, setActiveLink] = useState(0);
+  const handleLinkClick = (index: React.SetStateAction<number>) => {
     setActiveLink(index);
   };
 
-  const SIDEBAR_LINKS: SidebarLink[] = [
-    { id: 1, path: "/", name: "Dashboard", icon: LuBox },
-    { id: 2, path: "/members", name: "Members", icon: TbUsers },
-    { id: 3, path: "/messages", name: "Messages", icon: LuMessageSquare },
-    { id: 4, path: "/projects", name: "Projects", icon: FaSuitcase },
-    { id: 5, path: "/clients", name: "Clients", icon: LuUser },
-    { id: 6, path: "/work", name: "Work Plan", icon: LuCalendar },
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        window.location.href = '/login'; // Redirige a la página de login después de cerrar sesión
+      })
+      .catch((error) => {
+        console.error('Error al cerrar sesión:', error);
+      });
+  };
+
+  const SIDEBAR_LINKS = [
+    { id: 1, path: "/dashboard", name: "Dashboard", icon: <LuBox /> },
+    { id: 2, path: "/irrigation-records", name: "Riegos Activados", icon: <LuCalendar /> }, // Nuevo enlace
   ];
 
   return (
@@ -36,15 +34,14 @@ const Sidebar: React.FC = () => {
         <img src="/logo.svg" alt="logo" className="w-28 hidden md:flex" />
         <img src="/logo_mini.svg" alt="logo" className="w-8 flex md:hidden" />
       </div>
-      {/* logo */}
 
       {/* Navigation Links */}
       <ul className="mt-6 space-y-6">
         {SIDEBAR_LINKS.map((link, index) => (
           <li
-            key={link.id}
-            className={`font-medium rounded-md py-2 px-5 hover:bg-gray-100 hover:text-indigo-500 ${
-              activeLink === index ? "bg-indigo-100 text-indigo-500" : ""
+            key={index}
+            className={`font-medium rounded-md py-2 px-5 hover:bg-green-100 hover:text-green-600 ${
+              activeLink === index ? "bg-green-100 text-green-600" : ""
             }`}
           >
             <Link
@@ -52,7 +49,7 @@ const Sidebar: React.FC = () => {
               className="flex justify-center md:justify-start items-center md:space-x-5"
               onClick={() => handleLinkClick(index)}
             >
-              <span>{link.icon()}</span>
+              <span>{link.icon}</span> {/* Aquí es donde se instancia el ícono */}
               <span className="text-sm text-gray-500 hidden md:flex">
                 {link.name}
               </span>
@@ -62,11 +59,21 @@ const Sidebar: React.FC = () => {
       </ul>
       {/* Navigation Links */}
 
-      <div className="w-full absolute bottom-5 left-0 px-4 py-2 cursor-pointer text-center">
-        <p className="flex items-center space-x-2 text-xs text-white py-2 px-5 bg-gradient-to-r from-indigo-500 to-violet-600 rounded-full">
-          {" "}
-          <span>?</span> <span className="hidden md:flex">Need Help</span>
-        </p>
+      <div className="w-full absolute bottom-16 left-0 px-4">
+        <button className="w-full py-2 text-xs text-white bg-green-600 rounded-full hover:bg-green-700 focus:outline-none flex items-center justify-center">
+          <FaQuestionCircle className="mr-2" />
+          <span className="hidden md:inline">Necesito ayuda</span>
+        </button>
+      </div>
+      
+      <div className="w-full absolute bottom-5 left-0 px-4 py-2">
+        <button
+          onClick={handleLogout}
+          className="w-full py-2 text-xs text-white bg-green-600 rounded-full hover:bg-green-700 focus:outline-none flex items-center justify-center"
+        >
+          <RiLogoutCircleRLine className="mr-2" />
+          <span className="hidden md:inline">Cerrar sesión</span>
+        </button>
       </div>
     </div>
   );

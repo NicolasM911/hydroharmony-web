@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import { auth } from '../../../firebaseConfig'; // Ajusta la ruta según tu estructura
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'; // Asegúrate de que la ruta es correcta
