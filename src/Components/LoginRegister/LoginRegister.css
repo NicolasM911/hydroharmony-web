@@ -1,6 +1,7 @@
 .background-container {
   background-image: url('/image.png'); /* Reemplaza con la ruta correcta de tu imagen */
   background-size: cover;
+  background-position: center; /* Asegura que la imagen esté centrada */
   height: 100vh;
 }
 
@@ -14,17 +15,15 @@
 .form-container {
   width: 450px;
   background-color: #ffffff;
-  padding: 20px 10px;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
-  border-top-left-radius: 20px; /* Bordes superiores redondeados opcional */
-  border-top-right-radius: 20px; /* Bordes superiores redondeados opcional */
+  padding: 20px;
+  border-radius: 20px; /* Radio de borde uniforme */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Agrega una sombra sutil */
 }
 
 .heading {
   font-family: 'Rubik Moonrocks', sans-serif;
   font-size: 2.25rem; /* 36px */
-  color: #0ed145;; /*Verde*/
+  color: #0ed145; /* Verde */
   text-align: center;
   margin-bottom: 1.5rem; /* 24px */
   transition: all 0.3s ease;
@@ -35,35 +34,44 @@
 }
 
 .input-wrapper {
-  background-color: #e2e8f0; /* Gris claro */
+  background-color: #f1f5f9; /* Gris más claro */
   display: flex;
   align-items: center;
-  gap: 1.25rem; /* 20px */
-  margin: 1rem auto; /* 16px arriba y abajo, auto a los lados para centrar */
-  padding: 1rem; /* 16px */
-  border-radius: 0.25rem; /* 4px */
-  width: 90%; /* Puedes ajustar el ancho según sea necesario */
+  gap: 1rem; /* 16px */
+  margin: 1rem 0; /* 16px arriba y abajo */
+  padding: 0.75rem; /* 12px */
+  border-radius: 0.5rem; /* 8px */
+  width: 100%; /* Usa todo el ancho del contenedor */
 }
 
 .icon {
-  color:#0ed145;; /*Verde*/
-  font-size: 1.25rem; /* 20px */
+  color: #0ed145; /* Verde */
+  font-size: 1.5rem; /* 24px */
 }
 
 .input-field {
   background-color: transparent;
-  border: none;
+  border: 1px solid #e2e8f0; /* Borde gris claro */
+  border-radius: 0.25rem; /* 4px */
   outline: none;
   flex-grow: 1;
+  padding: 0.5rem; /* 8px */
+  font-size: 1rem; /* 16px */
+}
+
+.input-field:focus {
+  border-color: #0ed145; /* Verde al enfocar */
+  box-shadow: 0 0 0 2px rgba(14, 209, 69, 0.2); /* Sombra verde al enfocar */
 }
 
 .forgot-password {
-  margin: 1rem auto; /* 16px arriba y abajo, auto a los lados para centrar */
-  width: 90%; /* Puedes ajustar el ancho según sea necesario */
+  margin: 1rem 0; /* 16px arriba y abajo */
+  text-align: center;
 }
 
 .link {
-  color:#0ed145;; /*Verde*/
+  color: #0ed145; /* Verde */
+  text-decoration: underline; /* Subrayado para indicar enlace */
 }
 
 .button-container {
@@ -76,14 +84,14 @@
 .action-button {
   font-size: 1.25rem; /* 20px */
   color: #ffffff;
-  padding: 0.5rem 1rem; /* 8px 16px */
-  width: 9rem; /* 144px */
+  padding: 0.75rem 1.5rem; /* 12px 24px */
+  width: auto; /* Ajuste automático del ancho */
   border-radius: 1.5rem; /* 24px */
   transition: all 0.3s ease;
 }
 
 .action-button.active {
-  background-color: #0ed145; /* Azul oscuro */
+  background-color: #0ed145; /* Verde activo */
 }
 
 .action-button.inactive {
@@ -91,7 +99,7 @@
 }
 
 .action-button:hover {
-  background-color: #03581b; /* Gris oscuro para hover */
+  background-color: #03581b; /* Verde oscuro para hover */
   cursor: pointer;
   transform: scale(1.05); /* Aumenta ligeramente el botón en hover */
 }
