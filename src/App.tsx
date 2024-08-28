@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LoginRegister from '../src/Components/LoginRegister/LoginRegister'; // Ajusta la ruta si es necesario
-//import WelcomePage from '../src/Components/Dashboard/WelcomePage'; // Ajusta la ruta si es necesario
-import ProtectedRoute from '../src/Components/Alert/ProtectedRoute'; // Asegúrate de que la ruta sea correcta
+import LoginRegister from './Components/LoginRegister/LoginRegister'; // Ajusta la ruta si es necesario
+import ProtectedRoute from './Components/Alert/ProtectedRoute'; // Asegúrate de que la ruta sea correcta
 import './index.css';
 import Layout from './Components/Dashboard/test';
 import IrrigationRecords from './Components/IrrigationRecords/IrrigationRecords';
+import Logout from './Components/Logout/Logout';
+
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const App: React.FC = () => {
         <Route element={<ProtectedRoute />}>
           <Route path="/dashboard" element={<Layout />}>
             <Route path="irrigation-records" element={<IrrigationRecords />} />
+            <Route path="logout" element={<Logout />} /> {/* Ruta para cerrar sesión */}
           </Route>
         </Route>
       </Routes>
