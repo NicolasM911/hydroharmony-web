@@ -1,5 +1,5 @@
 .background-container {
-  background-image: url('./src/assets/image.png'); /* Reemplaza con la ruta correcta de tu imagen */
+  background-image: url('./public/image.png'); /* Reemplaza con la ruta correcta de tu imagen */
   background-size: cover;
   height: 100vh;
 }
