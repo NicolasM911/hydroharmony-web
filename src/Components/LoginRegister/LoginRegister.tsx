@@ -42,7 +42,8 @@ const App: React.FC = () => {
     <div className="background-container">
       <div className="centered-container">
         <div className="form-container">
-          <h1 className="heading">Iniciar Sesión</h1>
+          <h1 className="heading">HydroHarmony IoT</h1>
+          <h2 className="heading">Iniciar Sesión</h2>
           <div className="input-container">
             <div className="input-wrapper">
               <div className="icon">
