@@ -23,8 +23,9 @@ const Sidebar = () => {
   };
 
   const SIDEBAR_LINKS = [
-    { id: 1, path: "/dashboard", name: "Dashboard", icon: <LuBox /> },
-    { id: 2, path: "/irrigation-records", name: "Riegos Activados", icon: <LuCalendar /> }, // Nuevo enlace
+    { id: 1, path: "/hydroharmony", name: "Forraje Verde", icon: <LuBox /> },
+    { id: 2, path: "/dashboard", name: "Dashboard", icon: <LuBox /> },
+    { id: 3, path: "/irrigation-records", name: "Riegos Activados", icon: <LuCalendar /> }, // Nuevo enlace
   ];
 
   return (

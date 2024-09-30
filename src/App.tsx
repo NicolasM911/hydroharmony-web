@@ -4,7 +4,7 @@ import LoginRegister from '../src/Components/LoginRegister/LoginRegister';
 import ProtectedRoute from '../src/Components/Alert/ProtectedRoute';
 import Layout from './Components/Dashboard/test'; // Asegúrate de que la ruta sea correcta
 import IrrigationRecords from './Components/IrrigationRecords/IrrigationRecords';
-import Logout from './Components/Logout/Logout'; // Asegúrate de que la ruta sea correcta
+import Layout1 from './Components/Dashboard/Home1';
 
 const App: React.FC = () => {
   return (
@@ -12,8 +12,8 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<LoginRegister />} />
         <Route path="/login" element={<LoginRegister />} />
-        <Route path="/logout" element={<Logout />} /> {/* Ruta para el logout */}
         <Route element={<ProtectedRoute />}>
+          <Route path="/hydroharmony" element={<Layout1 />} />
           <Route path="/dashboard" element={<Layout />}>
             <Route path="irrigation-records" element={<IrrigationRecords />} />
           </Route>
@@ -22,5 +22,6 @@ const App: React.FC = () => {
     </Router>
   );
 };
+
 
 export default App;

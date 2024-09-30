@@ -14,6 +14,7 @@ export default {
     current: 'currentColor',
     extend: {
       colors: {
+        'verde-natural': '#437D4B', // Nombre de clase personalizado
         // light mode
         tremor: {
           brand: {

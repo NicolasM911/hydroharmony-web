@@ -72,7 +72,7 @@ const Layout = () => {
     <div className="flex">
       <Sidebar />
       <div className="w-full ml-16 md:ml-56 p-5">
-        <Header />
+      <Header />
 
         {/* Contenedor de la tarjeta de timestamp */}
         <div className="flex flex-col w-full mb-4">

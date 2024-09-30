@@ -24,7 +24,7 @@ const App: React.FC = () => {
       }
   
       await signInWithEmailAndPassword(auth, email, password);
-      navigate('/dashboard', { state: { alertMessage: 'Bienvenido a HydroHarmony IOT', alertType: 'success' } });
+      navigate('/hydroharmony', { state: { alertMessage: 'Bienvenido a HydroHarmony IOT', alertType: 'success' } });
     } catch (error: any) {
       setAlertMessage('Error al iniciar sesión. Por favor, verifica tus credenciales.');
       setAlertType('error');
