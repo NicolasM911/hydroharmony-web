@@ -2,16 +2,13 @@ import { useState, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Sidebar from '../Sidebar/Sidebar';
 import Header from '../Header/Header';
-
-import { ref, onValue, query, orderByChild, limitToLast, set } from 'firebase/database';
+import { ref, onValue, query, orderByChild, limitToLast } from 'firebase/database';
 import { database } from '../../../firebaseConfig';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
-
 import Alert from '../Alert/Alert';
 import GreenFodderIntro from './hydroharmony';
 
-const Layout1 = () => {
-  const [timestamp, setTimestamp] = useState<string | null>(null);
+const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [alertMessage, setAlertMessage] = useState<string | null>(null);
   const [alertType, setAlertType] = useState<'success' | 'error'>('success'); // Inicializa como 'success'
@@ -23,7 +20,7 @@ const Layout1 = () => {
       snapshot.forEach((childSnapshot) => {
         const data = childSnapshot.val();
         if (data) {
-          setTimestamp(new Date(data.timestamp).toLocaleString());
+          // Aquí podrías manejar la data si es necesario
           setIsLoading(false);
         }
       });
@@ -41,7 +38,6 @@ const Layout1 = () => {
     }
   }, [location.state]);
 
-
   const handleCloseAlert = () => {
     setAlertMessage(null);
   };
@@ -54,11 +50,22 @@ const Layout1 = () => {
     <div className="flex">
       <Sidebar />
       <div className="w-full ml-16 md:ml-56 p-5">
-      <Header />
-      <GreenFodderIntro/>
+        <Header />
+        <GreenFodderIntro />
+        {alertMessage && (
+          <div className="fixed bottom-5 right-5 z-50">
+            <Alert
+              message={alertMessage}
+              type={alertType}
+              onClose={handleCloseAlert}
+            />
+          </div>
+        )}
+
+        <Outlet />
       </div>
     </div>
   );
 };
 
-export default Layout1;
+export default Home;
